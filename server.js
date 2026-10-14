@@ -9,7 +9,7 @@
             return await handleGet(res)
     }
     else if(req.url.startsWith('/api') && req.method === 'POST'){
-        handlePost(res,req)
+        handlePost(req)
     }
     else{
     await serverStatic(res, req, __dirName)
