@@ -1,4 +1,5 @@
 import { getData } from "../utils/getData.js";
+import { parseJSONBody } from "../utils/parseJSONBody.js";
 import { sendResponse } from "../utils/sendResponse.js";
 
 export async function handleGet(res) {
@@ -8,4 +9,9 @@ export async function handleGet(res) {
         typeof data === "string" ? data : JSON.stringify(data);
 
     sendResponse(res, 200, "application/json", dataStr);
+}
+
+export async  function handlePost(req){
+  const rawBody = await  parseJSONBody(req)
+  console.log(rawBody)
 }
